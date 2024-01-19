@@ -1,0 +1,744 @@
+/*::::: Comment Codes :::::*/
+/* //    - commentedOut */
+/* ignore - IGNORE
+/* !!!    - ALERT
+/* +++    - TODO
+/* ???    - QUERY
+/* @      - URL/CREDIT
+/* <---   - HIGHLIGHT
+/* *****  - H1
+/* ###    - H2
+/* _____  - H3
+/* >>>    - NOTE TITLE
+/* ---    - SUBNOTE / LIST
+/* :::::  - NOTE EXAMPLE 
+/*.....NB - LONGER NOTE / EXPLAIN 
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Jomhuria&family=Josefin+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Katibeh&family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Potta+One&display=swap');
+
+/** font-family ~
+Headings:     'Potta One', cursive;
+            ~regular 400
+Body:         'Josefin Sans', sans-serif;
+            ~regular & italic: 400, 500, 600, 700
+Nothing:      'Montserrat', sans-serif;
+            ~regular & italic: 400, 500, 600, 700
+
+**/
+
+/** PALLETTE ~
+            SOFT GREEN:       #d1f6c1;
+            SOFT LIME GREEN:  #a2e4a2;
+HEADER      PALE YELLOW:      #fdffa3;  rgb(253, 255, 163)
+            MODERATE CYAN:    #45b7b7; 
+                              #52bebe;
+            V.SOFT MAGENTA:   #f59af0; 
+NAV-LINK      SOFT MAGENTA:     #f176eb;
+            V.SOFT VIOLET:    #a980e4;
+H2-HERO       SOFT RED:         #f2604c;  rgb(245, 118, 101)
+
+
+            LIGHT GREY:       #BDBDBD;
+            MID GREY:         #757575;
+NAV-LINK SHAD.                  #272727;
+            V.DARK GREY:      #212121;              
+            BLACK:            #000000;
+**/
+
+
+
+/******* BROWSER RESET *******/
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+
+/******* GLOBAL *******/
+
+html,
+body {
+  width: 100%;
+  min-height: 100%;
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 16px;
+  line-height:
+    calc(1.3em + (1.5 - 1.3) * ((100vw - 21em)/(35 - 21)));
+  /* https://css-tricks.com/simplified-fluid-typography/ */
+  /*background: rgb(150,251,196);
+      background: 
+         linear-gradient(0deg, 
+         rgba(150,251,196,1) 0%, 
+         rgba(253, 255, 163, 1) 99%);*
+   background-image: linear-gradient(-180deg, #FFFEFF 0%, #D7FFFE 100%);
+   background-repeat: no-repeat;
+   background-attachment: fixed;
+   /* leaving just min-height as 100% and removing background-repeat & attachment makes the gradient stretch the full height, not just fixed in the view window */
+}
+
+
+/*ignore - possibly no longer need ? seems to be working ok without - removed div from html
+.body-wrap {
+   position: relative;
+   z-index: 1;
+   /* Position & z-index needs set in order for Hero position to be displayed correctly, which uses absolute + correct z-index *
+}
+*/
+
+
+/******* MAIN WRAPPERS *******/
+
+/* from below Hero as Hero needs to take full vw*/
+.main {
+  width: min(800px, 95%);
+  margin: auto;
+}
+
+section {
+  width: 100%;
+  margin: 10vh auto;
+  height: auto;
+}
+
+section.about .container,
+section.products div.wrapper {
+  box-shadow:
+    rgba(50, 50, 93, 0.25) 0px 13px 13px -20px,
+    rgba(0, 0, 0, 0.3) 0px 30px 30px -30px,
+    rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+  /*https://getcssscan.com/css-box-shadow-examples*/
+}
+
+/******* MAIN TYPOGRAPHY *******/
+
+h2,
+h3,
+h4,
+.nav-link {
+  font-family: 'Potta One', cursive;
+  text-shadow: 1px 2px 1px #272727;
+}
+
+h2 {
+  margin-bottom: 8vh;
+  text-align: center;
+  color: #a980e4;
+  font-size: clamp(100%, 1.012rem + 1vw, 30px);
+}
+
+h3 {
+  margin: 1rem auto;
+  color: #f2604c;
+  font-size: clamp(16px, 0.75rem + 1vw, 20px);
+}
+
+p,
+label {
+  font-size: clamp(14px, 0.697rem + 1vw, 18px);
+  line-height: 1.5;
+}
+
+li {
+  list-style: none;
+  font-size: clamp(14px, 0.697rem + 1vw, 18px);
+  line-height: 1.7;
+}
+
+a:link {
+  text-decoration: none;
+  cursor: pointer;
+  color: #f176eb;
+  text-shadow: 1px 1px 1px #272727;
+}
+
+a:visited {}
+
+a:hover,
+a:focus {
+  color: #f2604c;
+}
+
+a:active {}
+
+
+
+/******* SELECTOR TYPOGRAPHY *******/
+
+.nav-link {
+  color: #f176eb;
+  text-shadow: 1px 1px 1px #272727;
+}
+
+.main-nav ul li {
+  font-size: clamp(14px, 0.75rem + 1vw, 18px);
+  /* 0.75rem -> 16px x 0.75 = 14px */
+  line-height: 1.2;
+}
+
+@media (max-width: 750px) {
+  .main-nav ul li {
+    line-height: 1;
+  }
+}
+
+footer p {
+  font-size: clamp(10px, 0.697rem + 1vw, 12px);
+}
+
+footer div.my-links,
+footer div.credits {
+  text-align: center;
+}
+
+section.hero h2 {
+  color: #f2604c;
+  text-shadow: 1px 2px 1px #272727;
+  margin: 10px;
+}
+
+section.hero p {
+  padding: 12px;
+  color: #fff;
+  text-shadow: 1px 2px 1px #272727;
+}
+
+@media (max-width: 650px) {
+
+  section.hero h2,
+  section.hero p {
+    padding: 0;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+}
+
+section.products .wrapper div.price {
+  font-size: clamp(100%, 0.75rem + 1vw, 22px);
+  font-weight: 600;
+}
+
+section.wendy p {
+  margin-bottom: 4vh;
+}
+
+@media (max-width: 650px) {
+  section.wendy p {
+    text-align: center;
+  }
+}
+
+section.comments h3 {
+  font-size: clamp(100%, 1.012rem + 1vw, 30px);
+  margin-bottom: 16px;
+}
+
+
+/******* OBJECTS *******/
+
+footer div .hr-foot {
+  width: 628px;
+  height: 48px;
+  margin: auto;
+  border: 0;
+  height: 55px;
+  background-image: url(https://www.formget.com/wp-content/uploads/2014/12/type_5.png);
+  background-repeat: no-repeat;
+}
+
+.btn {
+  background-color: #a980e4;
+  border-radius: 7px;
+  border-style: none;
+  box-shadow: 1px 1px 3px 1px #272727;
+  color: #fdffa3;
+  cursor: pointer;
+  font-size: clamp(13px, 0.697rem + 1vw, 15px);
+  font-weight: bold;
+  margin: 10px auto;
+  padding: 4px 10px;
+  position: relative;
+  text-shadow: 1px 1px 1px #272727;
+  text-transform: none;
+  transition: all 500ms ease;
+}
+
+.btn:hover,
+.btn:focus {
+  color: #ff7a59;
+  border: #ff7a59 solid 1px;
+  background: #fff;
+}
+
+/*Hero Submit button*/
+section.hero #submit {
+  margin: 15px 10px 10px 10px;
+}
+
+#comment-submit {
+  font-size: clamp(13px, 0.697rem + 1vw, 15px);
+  text-transform: none;
+}
+
+.icon {
+  display: flex;
+  color: #45b7b7;
+  text-shadow: 1px 2px 1px #212121;
+}
+
+section.about .wrapper div.icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100px;
+  width: 20vw;
+}
+
+@media (max-width: 650px) {
+  section.about .wrapper div.icon {
+    height: auto;
+  }
+}
+
+/*
+Icon & Cont heights the same, with 20:80 vw width ratio - will try these as % to make up div 100% width
+*/
+
+footer .main-social .icon-link {
+  padding: 16px;
+}
+
+
+/******* MEDIA *******/
+
+.vids-container {
+  margin: auto;
+  max-width: 640px;
+  padding: 10px;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+.vid-wrap {
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  width: 100%;
+  margin: auto;
+  margin-bottom: 8vh;
+  height: auto;
+  padding-top: 56.25%;
+  /* https://blog.theodo.com/2018/01/responsive-iframes-css-trick/ */
+}
+
+.vid-wrap iframe {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+
+/****** HR - PAGE BREAK IMAGE ******/
+div.hr-pb-wrapper {
+  max-width: min(1000px, 100%);
+  margin: 16vh auto 0 auto;
+}
+
+div.hr-pb-wrapper img {
+  width: 100%;
+  margin: auto;
+}
+
+
+/******* HEADER DESIGN (need to add typography & spacing to above) *******/
+
+header {
+  display: flex;
+  position: fixed;
+  z-index: 2;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0 auto;
+  top: 0;
+  left: 0;
+  min-height: 50px;
+  background: rgb(253, 255, 163);
+  background: rgba(253, 255, 163 1);
+  box-shadow: 1px 1px 5px #272727;
+}
+
+@media (max-width: 460px) {
+  header {
+    flex-wrap: wrap;
+  }
+}
+
+.logo-wrap {
+  width: 50%;
+}
+
+@media (max-width: 650px) {
+  .logo-wrap {
+    margin-top: 15px;
+    width: 100%;
+    position: relative;
+  }
+}
+
+.logo-wrap img {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  width: 100%;
+  max-width: 270px;
+  height: 100%;
+  min-height: 100px;
+  margin-left: 30px;
+}
+
+@media (max-width: 650px) {
+  .logo-wrap img {
+    /*max-width: 90%;
+    max-height: 90%;*/
+    margin: 0 auto;
+  }
+}
+
+
+/******* HEADER NAV (need to add typography & spacing to above) *******/
+
+header .main-nav {
+  display: flex;
+  width: 50%;
+  padding: 5px;
+  align-items: center;
+  text-align: center;
+}
+
+@media (max-width: 650px) {
+  header .main-nav {
+    flex-direction: column;
+    width: 100%;
+  }
+}
+
+header .main-nav ul {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  text-align: center;
+  width: 100%;
+}
+
+@media (max-width: 750px) {
+  header .main-nav ul {
+    flex-direction: column;
+  }
+}
+
+header .main-nav ul li {
+  padding: 10px;
+}
+
+@media (max-width: 750px) {
+  header .main-nav ul li {
+    flex-direction: column;
+    padding: 5px;
+  }
+}
+
+header .main-nav .nav-link {
+  background-image: linear-gradient(to right,
+      rgba(169, 128, 228, .8),
+      rgba(69, 183, 183, .8) 70%,
+      rgba(223, 254, 254, .8) 90%);
+  background-size: 0% 3px;
+  background-repeat: no-repeat;
+  background-position: left bottom;
+  transition: background-size 700ms ease;
+}
+
+header .main-nav .nav-link:hover,
+header .main-nav .nav-link:active {
+  text-decoration: none;
+  background-size: 100% 4px;
+}
+
+
+/* ======= FOOTER ======= */
+
+footer {
+  margin-top: 16vh;
+  background-color: rgba(189, 189, 189, 0.369);
+}
+
+footer .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* --- Must 'center' for centered hr (was issue with pb-img) */
+  justify-content: space-evenly;
+  width: min(628px, 99%);
+  margin: auto;
+  overflow: hidden;
+  padding-top: 5%;
+}
+
+footer ul.foot-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  text-align: center;
+  width: 100%;
+  background: none;
+}
+
+@media (max-width: 550px) {
+  footer ul.foot-nav {
+    flex-direction: column;
+    width: 100%;
+  }
+}
+
+footer ul.foot-nav li {
+  padding: 10px;
+}
+
+@media (max-width: 750px) {
+  footer ul.foot-nav li {
+    padding: 5px;
+  }
+}
+
+
+/******* HERO (need to add typography & spacing to above) *******/
+
+section.hero {
+  display: flex;
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  min-height: 100vh;
+  max-height: 100vh;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  box-shadow: 1px 1px 5px #272727;
+}
+
+@media (max-width: 650px) {
+  section.hero {
+    margin-top: 25vh;
+    min-height: 75vh;
+  }
+}
+
+section.hero::before {
+  display: block;
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.5;
+  background-image: url(https://lnnk.in/gQbv);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  content: "";
+}
+
+/*
+> For including within .hero instead of using ::before ;
+background-image: url(https://lnnk.in/gQbv);
+background-size: cover;
+background-position: center;
+background-repeat: no-repeat;
+background-attachment: fixed;  
+*/
+
+section.hero .container {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  z-index: 1;
+  width: min(800px, 100%);
+  /* this means the div width will be [max] 800px before switching to 100% when available space < 800px */
+  padding: 10px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  /* Transparent white background:
+   background: rgb(255,255,255);
+   background: rgba(255,255,255,0.2);
+  */
+}
+
+@media (max-width: 650px) {
+  section.hero .container {
+    background: none;
+    /* ^-- only needed when using white background for it to be removed again @ 650px */
+    padding: 0;
+  }
+}
+
+/*
+> After switching to width: min(800px, 100%) & removing .hero .container padding @ 650px:
+--h3 went from LB (line-break) @ 418px to 371px
+--p LB from 424px to 377px
+*/
+
+section.hero #form input[type='email'] {
+  max-width: 275px;
+  width: min(400px, 90%);
+  padding: 8px;
+  border: none;
+  border-radius: 10px;
+}
+
+@media (max-width: 650px) {
+  section.hero #form input[type='email'] {
+    padding: 6px;
+  }
+}
+
+
+/******* ABOUT (need to add typography & spacing to above) *******/
+
+section.about .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  background: rgb(255, 255, 255);
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+}
+
+section.about div.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 15px;
+}
+
+@media (max-width: 650px) {
+  section.about div.wrapper {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+section.about div.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100px;
+  width: 80vw;
+  padding: 5px;
+}
+
+@media (max-width: 650px) {
+  section.about div.content {
+    height: auto;
+    text-align: center;
+  }
+}
+
+section.about div.content h3 {
+  margin-top: 0;
+}
+
+
+/******* PRODUCTS *******/
+
+section.products {
+  margin-top: 8vh;
+}
+
+section.products .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+@media (max-width: 650px) {
+  section.products .container {
+    flex-direction: column;
+    height: 650px;
+    /* height needs to be big enough for justify-content to apply - set manually here */
+  }
+}
+
+section.products div.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* ^-- whether icon etc is aligned to left, centered etc*/
+  padding: 16px;
+  width: min(300px, 95%);
+  /* this means the div width will be [max] 300px before switching to 95% when available space < 300px */
+  background: rgb(255, 255, 255);
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+}
+
+@media (max-width: 1050px) {
+  section.products div.wrapper {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+/******* COMMENTS (need to add typography & spacing to above) *******/
+
+section.comments {
+  display: flex;
+  flex-direction: column;
+  width: min(500px, 100%);
+}
+
+@media (max-width: 650px) {
+  section.comments {
+    align-items: center;
+    justify-content: center;
+    text-align: left;
+  }
+}
+
+section.comments .container {
+  width: 100%;
+  margin: auto;
+}
+
+section.comments #comment-form input[type='text'],
+section.comments #comment-form input[type='email'],
+section.comments #comment-form textarea {
+  display: block;
+  margin-bottom: 10px;
+  width: 100%;
+  padding: 4px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -o-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -khtml-border-radius: 5px;
+  border-radius: 5px;
+  line-height: 1.4em;
+}
